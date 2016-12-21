@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/markdown.css">
+    <link rel="stylesheet" href="css/timer.css">
+    <title>task2</title>
+</head>
+<body>
+	<article class="markdown-body">
+		<h1>Task 2: Complete the outline of writing an online posting with the given words.</h1>
+		<p>(Guidelines: You drag your words / phrases in the appropriate box, or click on the word / phrase and click on the appropriate box to form the correct answer.)</p>
+
+		<blockquote>
+		  <p>A. description
+		    <br>
+			B. name
+			<br>
+			C. posting
+		      <br>
+			D. modd
+		        <br>
+			E. time
+			<br>
+			F. wish
+			<br>
+			G. opinions/feelings <br>
+		        </p>
+		</blockquote>
+		      <h4>	1. Title of the 
+		      <input type="text" maxlength="1"></input> 
+		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		      <h4>	2. The writer's 
+		      <input type="text" maxlength="1"></input> 
+		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		      <h4>	3. Date and  
+		      <input type="text" maxlength="1"></input> 
+		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		      <h4>	4. The writer's 
+				<input type="text" maxlength="1"></input> 
+		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		      <h4>	5. <input type="text" maxlength="1"></input> 
+		       of the incident
+		       <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		      <h4>	6. The writer's <input type="text" maxlength="1"></input> 
+		       about the incident
+		       <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		       </h4>
+		      <h4>	7. The writer's <input type="text" maxlength="1"></input> 
+		       for things to be different
+				<button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+		      </h4>
+		<button class="btn btn-primary btn-lg" type="button" onClick="check_all_question()">Submit all answers</button>
+	    <a class="btn btn-primary btn-lg" href="task3.html" role="button">Go To Task 3</a>
+    </article>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+    <script type="text/javascript">
+    	var AnswerKey = ['B', 'A', 'B', 'C', 'C', 'B'];
+        var IsSubmitted = [false, false, false, false, false, false];
+        var NumberOfQuestion = AnswerKey.length;
+        var NumberOfCorrectAnswer = 0;
+
+        function check_question(question_number) {
+          if (IsSubmitted[question_number-1]) 
+          {
+            return;
+          } else {
+            IsSubmitted[question_number-1] = true;
+          }
+          var eleId = "#" + "question-" + question_number;
+          var inputEle = eleId + " input";
+          var answer = $(inputEle).val().trim();
+          console.log(inputEle, " Answer: ", answer);
+
+          result = AnswerKey[question_number-1]
+          answerMsg = "The answer is: " + result;
+
+          if (answer.toUpperCase() === result)
+          {
+            NumberOfCorrectAnswer++;
+            console.log("Correct!");
+            $('<p></p>', {
+              text: "Correct! " + answerMsg,
+              class: 'bg-success'
+            }).appendTo(eleId);
+          }
+          else
+          {
+            console.log("Incorrect");
+            $('<p></p>', {
+              text: "Incorrect! " + answerMsg,
+              class: 'bg-danger'
+            }).appendTo(eleId);
+          }
+
+          $(inputEle).attr('disabled', 'disabled');
+          $(eleId + " button").attr('disabled', 'disabled');
+        }
+
+        function check_all_question() {
+          stopTimer();
+          for (var i = 1; i <= AnswerKey.length; i++) {
+            check_question(i);
+          }
+          show_popup_result();
+        }
+        // For pop-up
+        function show_popup_result() {
+          var popup_wrapper = $('.popup');// $('<div></div>', {class: 'popup'});
+          var msg1 = $('<h2></h2>', {
+            text: 'You have answered ' + NumberOfCorrectAnswer + '/' + NumberOfQuestion + ' correctly!'
+          });
+          var msg2 = $('<h3></h3>', {
+            text: 'Your score is: ' + Math.round(NumberOfCorrectAnswer*100/NumberOfQuestion) + "%!"
+          });
+          popup_wrapper.prepend(msg1).prepend(msg2);
+          popupOpenClose(popup_wrapper);
+        }
+
+        function popupOpenClose(popup) {
+          
+          /* Add div inside popup for layout if one doesn't exist */
+          if ($(".wrapper").length == 0){
+            $(popup).wrapInner("<div class='wrapper'></div>");
+          }
+          
+          /* Open popup */
+          $(popup).show();
+
+          /* Close popup if user clicks on background */
+          $(popup).click(function(e) {
+            if ( e.target == this ) {
+              if ($(popup).is(':visible')) {
+                $(popup).hide();
+              }
+            }
+          });
+
+          /* Close popup and remove errors if user clicks on cancel or close buttons */
+          $(popup).find("button[name=close]").on("click", function() {
+            if ($(".formElementError").is(':visible')) {
+              $(".formElementError").remove();
+            }
+            $(popup).hide();
+          });
+        }
+
+        $(document).ready(function () {
+          timeOutCallback = check_all_question;
+          startTimer();
+        });
+
+    </script>
+  </body>
+</html>

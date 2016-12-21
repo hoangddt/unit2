@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/markdown.css">
+    <link rel="stylesheet" href="css/timer.css">
     <style>
       .popup {
         background: rgba(100, 100, 100, 0.6);
@@ -39,6 +40,9 @@
         text-align: center;
         border: 5px solid #9AD3DE;
       }
+      h1 {
+        color: #0D5B85;
+      }
     </style>
     <title>Task 1</title>
     </head>
@@ -62,6 +66,14 @@
             I wish that my parents would allow me to stay out until 10 o'clock in the evenings. How can I make my parents change their mind?
           </p>
         </blockquote>
+        <div class="timer-wrapper">
+          <div id="message">Time Remainning</div>
+          <div id="timer">
+            <span id="minutes">5</span>
+            <span id="middle">:</span>
+            <span id="seconds">00</span>
+          </div>
+        </div>
         <div id="question-1">
           <h4>1. What is the title of the posting?</h4>
                 <p>A. I forgot the curfew.<br>
@@ -133,7 +145,7 @@
                   <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
                 </p>
         </div>
-          <button class="btn btn-primary btn-lg" type="button" onClick="check_all_question()">Submit all answer</button>
+          <button class="btn btn-primary btn-lg" type="button" onClick="check_all_question()">Submit all answers</button>
           <a class="btn btn-primary btn-lg" href="http://google.com" role="button">Next</a>
 
       </article>
@@ -142,6 +154,7 @@
       </div>
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/timer.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script type="text/javascript">
         var AnswerKey = ['B', 'A', 'B', 'C', 'C', 'B'];
@@ -187,6 +200,7 @@
         }
 
         function check_all_question() {
+          stopTimer();
           for (var i = 1; i <= AnswerKey.length; i++) {
             check_question(i);
           }
@@ -232,6 +246,11 @@
             $(popup).hide();
           });
         }
+
+        $(document).ready(function () {
+          timeOutCallback = check_all_question;
+          startTimer();
+        });
 
       </script>
     </body>
