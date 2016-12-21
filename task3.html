@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="css/markdown.css">
     <link rel="stylesheet" href="css/timer.css">
 	<link rel="stylesheet" href="css/popup.css">
-    <title>Task 2</title>
+    <title>Task 3</title>
 </head>
 <body>
 	<article class="markdown-body">
-		<h1>Task 2: Complete the outline of writing an online posting with the given words.</h1>
-		<p>(Guidelines: You drag your words / phrases in the appropriate box, or click on the word / phrase and click on the appropriate box to form the correct answer.)</p>
+		<h1>Task 2: Match stories with suitable wishes</h1>
 
 		<div class="timer-wrapper">
           <div id="message">Time Remainning</div>
@@ -25,71 +24,52 @@
         </div>
 
 		<blockquote>
-		  <p>A. description
-		    <br>
-			B. name
-			<br>
-			C. posting
-		      <br>
-			D. modd
-		        <br>
-			E. time
-			<br>
-			F. wish
-			<br>
-			G. opinions/feelings <br>
-		        </p>
+		  <p>
+        <h4>A. You wish you brought your camera along.</h4>
+        <h4>B. You wish your friend had forgiven you. You two become friends again.</h4>
+        <h4>C. You wish your parents would spend more time with you.</h4>
+        <h4>D. You wish your dad would stop judging your friends by their appearances.</h4>
+		  </p>
 		</blockquote>
+    <br>
 				<div id="question-1">
-		      <h4>	1. Title of the 
-		      <input type="text" maxlength="1"></input> 
-		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(1)">Submit</button>
-		      </h4>
-		      </div>
+		      <h4>1. Your friend told you a secret but you failed to keep it. Hence, she broke up with you. Although you tried to apologize to her, she didn't accept.</h4>
+
+          <p>Answer: 
+            <input type="text" maxlength="1"></input>
+            <button class="btn btn-default btn-sm" type="button" onClick="check_question(1)">Submit</button>
+          </p>
+		    </div>
 
 		      <div id="question-2">
-		      <h4>	2. The writer's 
-		      <input type="text" maxlength="1"></input> 
-		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(2)">Submit</button>
-		      </h4>
+            <h4>2. Your parents are very busy and can't attend any school activities with you. You feel really lonely.</h4>
+
+            <p>Answer: 
+              <input type="text" maxlength="1"></input>
+              <button class="btn btn-default btn-sm" type="button" onClick="check_question(2)">Submit</button>
+            </p>
 		      </div>
 
 		      <div id="question-3">
-		      <h4>	3. Date and  
-		      <input type="text" maxlength="1"></input> 
-		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(3)">Submit</button>
-		      </h4>
+  		      <h4>3. At the party, your father showed that he did not like your friends only by their appearances and your friends were very sad. They had left your party before your party ended.</h4>
+
+            <p>Answer: 
+              <input type="text" maxlength="1"></input>
+              <button class="btn btn-default btn-sm" type="button" onClick="check_question(3)">Submit</button>
+            </p>
 		      </div>
 
 		      <div id="question-4">
-		      <h4>	4. The writer's 
-				<input type="text" maxlength="1"></input> 
-		      <button class="btn btn-default btn-sm" type="button" onClick="check_question(4)">Submit</button>
-		      </h4>
+		        <h4>4. Today, your family has a picnic but cannot take photographs because last night, you forgot to put a camera in your backpack.</h4>
+
+            <p>Answer: 
+              <input type="text" maxlength="1"></input>
+              <button class="btn btn-default btn-sm" type="button" onClick="check_question(4)">Submit</button>
+            </p>
 		      </div>
 
-		      <div id="question-5">
-		      <h4>	5. <input type="text" maxlength="1"></input> 
-		       of the incident
-		       <button class="btn btn-default btn-sm" type="button" onClick="check_question(5)">Submit</button>
-		      </h4>
-		      </div>
-
-		      <div id="question-6">
-		      <h4>	6. The writer's <input type="text" maxlength="1"></input> 
-		       about the incident
-		       <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
-		       </h4>
-		       </div>
-
-		       <div id="question-7">
-		      <h4>	7. The writer's <input type="text" maxlength="1"></input> 
-		       for things to be different
-				<button class="btn btn-default btn-sm" type="button" onClick="check_question(7)">Submit</button>
-		      </h4>
-		      </div>
 		<button class="btn btn-primary btn-lg" type="button" onClick="check_all_question()">Submit all answers</button>
-	    <a class="btn btn-primary btn-lg" href="task3.html" onClick="check_is_stored()" role="button">Go To Task 3</a>
+	    <a class="btn btn-primary btn-lg" href="task4.html" onClick="check_is_stored()" role="button">Go To Task 4</a>
     </article>
     <div class="popup">
         <button class="btn btn-info" name="close">Close</button>
@@ -99,9 +79,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/timer.js"></script>
     <script type="text/javascript">
-    	var AnswerKey = ['C', 'B', 'E', 'D', 'A', 'G', 'F'];
-      var isStored = false;
-        var IsSubmitted = [false, false, false, false, false, false, false];
+    	var AnswerKey = ['B', 'C', 'D', 'A'];
+        var IsSubmitted = [false, false, false, false];
+        var isStored = false;
         var NumberOfQuestion = AnswerKey.length;
         var NumberOfCorrectAnswer = 0;
 
@@ -209,7 +189,7 @@
         function store_result() {
           if (typeof(Storage) !== "undefined") {
             // Store
-            localStorage.setItem("task2", [NumberOfCorrectAnswer, NumberOfQuestion]);
+            localStorage.setItem("task3", [NumberOfCorrectAnswer, NumberOfQuestion]);
             isStored = true;
           }
         }
