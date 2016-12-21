@@ -2,87 +2,237 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/markdown.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <style>
+      .popup {
+        background: rgba(100, 100, 100, 0.6);
+        position: fixed;
+        margin: 0 auto;
+        display: none;
+        z-index: 5000;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+      .popup > div {
+        border-radius: 10px;
+        position: fixed;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+        padding: 30px 15px;
+        /* Width of popup can be changed */
+        width: 70%;
+        max-width: 600px;
+        z-index: 5001;
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        border: 5px solid #9AD3DE;
+      }
+    </style>
     <title>Task 1</title>
     </head>
     <body>
       <article class="markdown-body">
         <h1>
-          </a>Task 1 Read the online posting below. Choose the correct answer.
+          Task 1: Read the online posting below. <br>
+          Choose the correct answer.
         </h1>
         <blockquote>
           <p>
             <strong>Re: My parents are too strict.</strong>
             <br>
-              <em>By: Maria&gt;&gt; Tuesday, May 23rd, 2016 at 2:38 P.M.</em>
-              <br>
-                <strong>Current mood: I'm so sad!</strong>
-                <br>
-My parents set a time for me to come home in the evenings. They expect me to be at home at 9 o'clock. I have asked them to give me a later curfew as I want to spend more time with my friends but they don't agree.
-Last night, I attended a wonderful birthday party at my friend's house. The party was so great that I forgot the curfews. My parents were very upset and they kept calling me. I asked them to allow me to stay there a little bit later. However, they said that if I didn't come back home right away, they would go to my friend's house and pick me up. 
-I was really embarrassed when I had to say goodbye to my friends but I had no choice. My parents were being unreasonable. It was a birthday party and they could be flexible to let me come back home later than the curfew time they set.
-I wish that my parents would allow me to stay out until 10 o'clock in the evenings. How can I make my parents change their mind?
+            <em>By: Maria&gt;&gt; Tuesday, May 23rd, 2016 at 2:38 P.M.</em>
+            <br>
+            <strong>Current mood: I'm so sad!</strong>
+            <br>
+            My parents set a time for me to come home in the evenings. They expect me to be at home at 9 o'clock. I have asked them to give me a later curfew as I want to spend more time with my friends but they don't agree.
+            Last night, I attended a wonderful birthday party at my friend's house. The party was so great that I forgot the curfews. My parents were very upset and they kept calling me. I asked them to allow me to stay there a little bit later. However, they said that if I didn't come back home right away, they would go to my friend's house and pick me up. 
+            I was really embarrassed when I had to say goodbye to my friends but I had no choice. My parents were being unreasonable. It was a birthday party and they could be flexible to let me come back home later than the curfew time they set.
+            I wish that my parents would allow me to stay out until 10 o'clock in the evenings. How can I make my parents change their mind?
+          </p>
+        </blockquote>
+        <div id="question-1">
+          <h4>1. What is the title of the posting?</h4>
+                <p>A. I forgot the curfew.<br>
+                   B. My parents are too strict.<br>
+                   C. A terrible birthday party
                 </p>
-              </blockquote>
-              <h4>
-                1. What is the title of the posting?
-              </h4>
-              <p>A. I forgot the curfew.
-                <br>
-B. My parents are too strict.
-                  <br>
-C. A terrible birthday party   
-                  </p>
-                  <h4>
-2. When did Maria write this online posting?
-                  </h4>
-                  <p>A. May 23rd, 2016
-                    <br>
-B. May 23rd, 2015
-                      <br>
-C. May 13rd, 2016  
-                      </p>
-                      <h4>
-3. How did Maria feel about the incident?
-                      </h4>
-                      <p>A. happy
-                        <br>
-B. unhappy
-                          <br>
-C. pleased  
-                          </p>
-                          <h4>
-4. What was the matter with Maria?
-                          </h4>
-                          <p>A. Her parents didn't like her friends.
-                            <br>
-B. She couldn't come to her friend's birthday party.
-                              <br>
-C. Her parents didn't allow her to stay out late.  
-                              </p>
-                              <h4>
-5. What did she do after her parents' call?
-                              </h4>
-                              <p>A. She continued enjoying the party.
-                                <br>
-B. She had a serious argument with her parents.
-                                  <br>
-C. She came back home without delay.  
-                                  </p>
-                                  <h4>
-6. What did she wish for the things to be different?
-                                  </h4>
-                                  <p>A. She wished that her parents could understand her.
-                                    <br>
-B. She wished that her parents would set a later time for her.
-                                      <br>
-C. She wished that she hadn't attended that birthday party.  
-                                      </p>
-                                      <blockquote>
-                                        <p>Next</p>
-                                      </blockquote>
-                                    </article>
-                                  </body>
-                                </html>
+                <p>Answer: 
+                  <input type="text" maxlength="1"></input>
+                  <button class="btn btn-default btn-sm" type="button" onClick="check_question(1)">Submit</button>
+                </p>
+                <p class="response"></p>
+        </div>
+        
+        <div id="question-2">
+          <h4>2. When did Maria write this online posting?</h4>
+              <p>A. May 23rd, 2016<br>
+                 B. May 23rd, 2015<br>
+                 C. May 13rd, 2016
+              </p>
+              <p>Answer: 
+                <input type="text" maxlength="1"></input>
+                <button class="btn btn-default btn-sm" type="button" onClick="check_question(2)">Submit</button>
+              </p>
+        </div>
+        
+        <div id="question-3">
+          <h4>3. How did Maria feel about the incident?</h4>
+               <p>A. happy<br>
+                  B. unhappy<br>
+                  C. pleased
+                </p>
+                <p>Answer: 
+                  <input type="text" maxlength="1"></input>
+                  <button class="btn btn-default btn-sm" type="button" onClick="check_question(3)">Submit</button>
+                </p>
+        </div>
+
+        <div id="question-4">
+          <h4>4. What was the matter with Maria?</h4>
+                <p>A. Her parents didn't like her friends.<br>
+                   B. She couldn't come to her friend's birthday party.<br>
+                   C. Her parents didn't allow her to stay out late.
+                </p>
+                <p>Answer: 
+                  <input type="text" maxlength="1"></input>
+                  <button class="btn btn-default btn-sm" type="button" onClick="check_question(4)">Submit</button>
+                </p>
+        </div>
+
+        <div id="question-5">
+          <h4>5. What did she do after her parents' call?</h4>
+                <p>A. She continued enjoying the party.<br>
+                   B. She had a serious argument with her parents.<br>
+                   C. She came back home without delay.
+                </p>
+                <p>Answer: 
+                  <input type="text" maxlength="1"></input>
+                  <button class="btn btn-default btn-sm" type="button" onClick="check_question(5)">Submit</button>
+                </p>
+        </div>
+
+        <div id="question-6">
+          <h4>6. What did she wish for the things to be different?</h4>
+                <p>A. She wished that her parents could understand her.<br>
+                   B. She wished that her parents would set a later time for her.<br>
+                   C. She wished that she hadn't attended that birthday party.</p>
+                <p>Answer: 
+                  <input type="text" maxlength="1"></input>
+                  <button class="btn btn-default btn-sm" type="button" onClick="check_question(6)">Submit</button>
+                </p>
+        </div>
+          <button class="btn btn-primary btn-lg" type="button" onClick="check_all_question()">Submit all answer</button>
+          <a class="btn btn-primary btn-lg" href="http://google.com" role="button">Next</a>
+
+      </article>
+      <div class="popup">
+        <button class="btn btn-info" name="close">Close</button>
+      </div>
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+        var AnswerKey = ['B', 'A', 'B', 'C', 'C', 'B'];
+        var IsSubmitted = [false, false, false, false, false, false];
+        var NumberOfQuestion = AnswerKey.length;
+        var NumberOfCorrectAnswer = 0;
+
+        function check_question(question_number) {
+          if (IsSubmitted[question_number-1]) 
+          {
+            return;
+          } else {
+            IsSubmitted[question_number-1] = true;
+          }
+          var eleId = "#" + "question-" + question_number;
+          var inputEle = eleId + " input";
+          var answer = $(inputEle).val().trim();
+          console.log(inputEle, " Answer: ", answer);
+
+          result = AnswerKey[question_number-1]
+          answerMsg = "The answer is: " + result;
+
+          if (answer.toUpperCase() === result)
+          {
+            NumberOfCorrectAnswer++;
+            console.log("Correct!");
+            $('<p></p>', {
+              text: "Correct! " + answerMsg,
+              class: 'bg-success'
+            }).appendTo(eleId);
+          }
+          else
+          {
+            console.log("Incorrect");
+            $('<p></p>', {
+              text: "Incorrect! " + answerMsg,
+              class: 'bg-danger'
+            }).appendTo(eleId);
+          }
+
+          $(inputEle).attr('disabled', 'disabled');
+          $(eleId + " button").attr('disabled', 'disabled');
+        }
+
+        function check_all_question() {
+          for (var i = 1; i <= AnswerKey.length; i++) {
+            check_question(i);
+          }
+          show_popup_result();
+        }
+        // For pop-up
+        function show_popup_result() {
+          var popup_wrapper = $('.popup');// $('<div></div>', {class: 'popup'});
+          var msg1 = $('<h2></h2>', {
+            text: 'You have answered ' + NumberOfCorrectAnswer + '/' + NumberOfQuestion + ' correctly!'
+          });
+          var msg2 = $('<h3></h3>', {
+            text: 'Your score is: ' + Math.round(NumberOfCorrectAnswer*100/NumberOfQuestion) + "%!"
+          });
+          popup_wrapper.prepend(msg1).prepend(msg2);
+          popupOpenClose(popup_wrapper);
+        }
+
+        function popupOpenClose(popup) {
+          
+          /* Add div inside popup for layout if one doesn't exist */
+          if ($(".wrapper").length == 0){
+            $(popup).wrapInner("<div class='wrapper'></div>");
+          }
+          
+          /* Open popup */
+          $(popup).show();
+
+          /* Close popup if user clicks on background */
+          $(popup).click(function(e) {
+            if ( e.target == this ) {
+              if ($(popup).is(':visible')) {
+                $(popup).hide();
+              }
+            }
+          });
+
+          /* Close popup and remove errors if user clicks on cancel or close buttons */
+          $(popup).find("button[name=close]").on("click", function() {
+            if ($(".formElementError").is(':visible')) {
+              $(".formElementError").remove();
+            }
+            $(popup).hide();
+          });
+        }
+
+      </script>
+    </body>
+  </html>
